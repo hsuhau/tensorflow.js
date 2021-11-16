@@ -4,13 +4,13 @@
  * @param data: 用于独立计算每列数据的平均值和标准差的数据集
  * @returns  包含每列数据的平均值和标准差的一维张量
  */
-export function determineMeanAndStdDev(data) {
-    const dataMean = data.mean(0);
-    const diffFromMean = data.sub(dataMean);
-    const squaredDiffFromMean = diffFromMean.square();
-    const variance = squaredDiffFromMean.mean(0);
-    const std = variance.sqrt();
-    return {mean, std};
+export function determineMeanAndStdDev (data) {
+  const dataMean = data.mean(0)
+  const diffFromMean = data.sub(dataMean)
+  const squaredDiffFromMean = diffFromMean.square()
+  const variance = squaredDiffFromMean.mean(0)
+  const std = variance.sqrt()
+  return { mean, std }
 }
 
 /**
@@ -20,9 +20,6 @@ export function determineMeanAndStdDev(data) {
  * @param dataStd: 输入的数据的标准差,形状为[numFeatures]
  * @returns {*}: 返回的张量和输入的数据的形状相同,但通过标准化,每列数据的平均值变为零,标准差变为单位标准差
  */
-export function normalizeTensor(data, dataMean, dataStd) {
-    return data.sub(dataMean).div(dataStd);
+export function normalizeTensor (data, dataMean, dataStd) {
+  return data.sub(dataMean).div(dataStd)
 }
-
-
-
